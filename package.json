@@ -1,0 +1,23 @@
+{
+  "name": "hapi-negotiator",
+  "version": "1.0.0",
+  "description": "Provides support for content negotiation in Hapi",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/lab/bin/lab -c"
+  },
+  "author": "Felipe Leusin (felipe.leusin@gmail.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "code": "^1.2.0",
+    "handlebars": "^2.0.0",
+    "hapi": "^7.1.1",
+    "lab": "^5.0.1",
+    "negotiator": "^0.4.9",
+    "sinon": "^1.10.3"
+  },
+  "dependencies": {
+    "boom": "^2.6.0",
+    "hoek": "^2.8.1"
+  }
+}
