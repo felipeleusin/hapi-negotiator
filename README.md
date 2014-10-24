@@ -5,7 +5,7 @@ Hapi Content Negotiation
 
 [**Hapi**](https://github.com/spumko/hapi) Content Negotiation Plugin
 
-This project enhances content negotiation capabilities of Hapi.
+This project enhances content negotiation capabilities of Hapi. It's a wrapper around [**Negotiator**](https://github.com/jshttp/negotiator) module.
 
 ## Purpose
 
