@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "boom": "^2.6.0",
-    "hoek": "^2.8.1"
+    "hoek": "^2.8.1",
+    "negotiator": "^0.4.9"
   }
 }
