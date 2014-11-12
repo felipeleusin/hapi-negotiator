@@ -1,6 +1,6 @@
 {
   "name": "hapi-negotiator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Provides support for content negotiation in Hapi",
   "main": "index.js",
   "scripts": {
