@@ -30,11 +30,13 @@ server.route({
 	method: 'GET',
 	path: '/',
 	config: {
-		'hapi-negotiator': {
-			mediaTypes: {
-				'text/html': { method: 'view', args: ['index'] },
-				'image/jpeg': false,
-				'application/vnd.project+json': true,
+		plugins: {
+			'hapi-negotiator': {
+				mediaTypes: {
+					'text/html': { method: 'view', args: ['index'] },
+					'image/jpeg': false,
+					'application/vnd.project+json': true,
+				}
 			}
 		}
 	}
