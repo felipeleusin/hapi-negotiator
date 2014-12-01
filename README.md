@@ -23,14 +23,22 @@ The plugin supports the following options:
 
  
 ## Example
+You have to configure the plugin for each route, so if you want a route to respond with a view named index when accept is text/html, notAccepted when image/jpeg and the regular json reply when application/vnd.project+json you should configure it as
+
 ```javascript
-{
-	mediaTypes: {
-		'text/html': { method: 'view', args: ['index'] },
-		'image/jpeg': false,
-		'application/vnd.project+json': true,
+server.route({
+	method: 'GET',
+	path: '/',
+	config: {
+		'hapi-negotiator': {
+			mediaTypes: {
+				'text/html': { method: 'view', args: ['index'] },
+				'image/jpeg': false,
+				'application/vnd.project+json': true,
+			}
+		}
 	}
-}
+});
 ``` 
 
 ## Todo
