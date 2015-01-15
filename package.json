@@ -24,7 +24,7 @@
   "devDependencies": {
     "code": "^1.2.0",
     "handlebars": "^2.0.0",
-    "hapi": "^7.1.1",
+    "hapi": "^8.1.0",
     "lab": "^5.0.1",
     "negotiator": "^0.4.9",
     "sinon": "^1.10.3"
