@@ -1,6 +1,7 @@
 var Lab = require('lab');
 var Code = require('code');
 var Hapi = require('hapi');
+var Path = require('path');
 var lab = exports.lab = Lab.script();
 var expect = Code.expect;
 var before = lab.before;
@@ -12,7 +13,7 @@ var sinon = require('sinon');
 
 describe('AcceptHeader', function () {
   var data = { data: 'test', success: true };
-  
+
   var defaultHandler = function (request, reply) {
     reply(data);
   };
@@ -22,10 +23,11 @@ describe('AcceptHeader', function () {
   });
 
   var server = new Hapi.Server({debug: false});
+  server.connection({ port: 80 });
 
   before(function (done) {
-    server.pack.register({
-      plugin: require('../'),
+    server.register({
+      register: require('../'),
       options: {}
     }, function (err) {
       expect(err).to.not.exist;
@@ -94,8 +96,7 @@ describe('AcceptHeader', function () {
         engines: {
             html: require('handlebars')
         },
-        basePath: __dirname,
-        path: './views'
+        path: Path.join(__dirname, 'views')
       });
 
       done();
