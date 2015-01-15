@@ -1,6 +1,6 @@
 {
   "name": "hapi-negotiator",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Provides support for content negotiation in Hapi",
   "main": "index.js",
   "scripts": {
@@ -32,6 +32,6 @@
   "dependencies": {
     "boom": "^2.6.0",
     "hoek": "^2.8.1",
-    "negotiator": "^0.4.9"
+    "negotiator": "^0.5.0"
   }
 }
