@@ -26,11 +26,20 @@ describe('AcceptHeader', function () {
   server.connection({ port: 80 });
 
   before(function (done) {
-    server.register({
-      register: require('../'),
-      options: {}
-    }, function (err) {
+    server.register([{
+        register: require('../'),
+        options: {}
+      },
+      {
+        register: require('hapi-auth-basic')
+      }], function (err) {
       expect(err).to.not.exist;
+      
+      server.auth.strategy('simple', 'basic', {
+        validateFunc: function (user, pass, cb) {
+          return cb(null, false);
+        }
+      });
 
       server.route([
         {
@@ -89,9 +98,24 @@ describe('AcceptHeader', function () {
             },
           },
           handler: defaultHandler
+        },
+        {
+          method: 'GET',
+          path: '/auth',
+          config: {
+            auth: 'simple',
+            plugins: {
+              'hapi-negotiator': {
+                mediaTypes: {
+                  'text/html': customNegotiation
+                }
+              }
+            }
+          },
+          handler: defaultHandler
         }
       ]);
-
+      
       server.views({
         engines: {
             html: require('handlebars')
@@ -167,6 +191,15 @@ describe('AcceptHeader', function () {
     };
     server.inject(request, function(res) {
       expect(res.statusCode).to.equal(200);
+      done();
+    });
+  });
+  it('does not ignore authentication errors when using custom negotiation', function (done) {
+    var request = {
+      url: '/auth', headers: { 'Accept' : 'text/html' }
+    };
+    server.inject(request, function (res) {
+      expect(res.statusCode).to.equal(401);
       done();
     });
   });
