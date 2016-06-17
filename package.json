@@ -26,13 +26,13 @@
     "handlebars": "^2.0.0",
     "hapi": "^8.1.0",
     "hapi-auth-basic": "^2.0.0",
-    "lab": "^5.0.1",
+    "lab": "^10.8.2",
     "negotiator": "^0.4.9",
     "sinon": "^1.10.3"
   },
   "dependencies": {
     "boom": "^2.6.1",
     "hoek": "^2.11.0",
-    "negotiator": "^0.5.0"
+    "negotiator": "^0.6.1"
   }
 }
